@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+        <main class="l-main">
+            <!--========== HOME ==========-->
+            <section class="home" id="home">
+                <div class="home__container bd-container bd-grid">
+                    <div class="home__data">
+                        <h1 class="home__title">Brain Tumor Detect</h1>
+                        <h2 class="home__subtitle">Detect your<br>MR (Magnetic Resonance)<br>image with AI</h2>
+                        <span class="section-subtitle about__initial">Please use images ".jpg" format only</span>
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                        <input type="file" name="image" id="actual-btn" class="button" accept="image/png, image/jpeg"/>
+                        <button type="submit" class="button"><a href="#about">Detect</a></button>
+                        </form>
+                    </div>
+    
+                    <img src="{% static 'assets/img/home1.png' %}" alt="" class="home__img">
+                </div>
+            </section>
+            
+            <!--========== ABOUT ==========-->
+            
+            <section class="about section bd-container" id="about">
+                <div class="about__container  bd-grid">
+                    <div class="about__data">
+                        <span class="section-subtitle about__initial">Your Result</span>
+                       
+                        <h2 class="section-title about__initial">There is no tumor, it is healthy</h2>
+            
+                        <a href="#home" class="button">Detect new one</a>
+                    </div>
+
+                    <img src="{% static 'assets/img/tmpa3qf4x8o.jpg' %}" alt="" class="about__img">
+                </div>
+            </section>
+            
+            
+            <!--========== MENU ==========
+            <section class="menu section bd-container" id="menu">
+                <span class="section-subtitle">Special</span>
+                <h2 class="section-title">Menu of the week</h2>
+
+                <div class="menu__container bd-grid">
+
+                    {% for item in samples %}
+
+                    <div class="menu__content">
+                        {% if item.image %}
+                        <img src="{{item.image.url}}" alt="" class="menu__img">
+                        {% else %}
+                        resim yok
+                        {% endif %}
+                        <h3 class="menu__name">{{item.title1}}</h3>
+                        <span class="menu__detail">{{item.title2}}</span>
+                        <span class="menu__preci">${{item.price}}</span>
+                        <a href="#" class="button menu__button"><i class='bx bx-cart-alt'></i></a>
+                    </div>
+                    {% endfor %}
+                 
+                </div>
+            </section> 
+        
+        -->
+
+           
+            <!--========== CONTACT US ==========-->
+            <section class="contact section bd-container" id="contact">
+                <div class="contact__container bd-grid">
+                    <div class="contact__data">
+                        <span class="section-subtitle contact__initial">About us</span>
+                        <h2 class="section-title contact__initial">Who am I?</h2>
+                        <p class="contact__description">I am software engineer. This project created for Huawei Cloud Practicum & Patika.dev</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    {% endblock %}
